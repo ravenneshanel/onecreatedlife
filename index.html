@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Created Life</title>
+  <meta name="description" content="One Created Life helps soulful entrepreneurs and creatives clarify their brand, elevate their presence, and create a life that feels aligned and authentic." />
+  <style>
+    :root {
+      --cream: #fbf6eb;
+      --soft: #e6d8ca;
+      --yellow: #fbc43e;
+      --ink: #1c1917;
+      --muted: #625b54;
+      --line: rgba(28, 25, 23, 0.14);
+      --white: rgba(255,255,255,0.66);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .signature {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+    }
+
+    .signature-wrap {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 22px 24px 34px;
+      text-align: center;
+    }
+
+    .signature-wrap:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(251,196,62,0.10), transparent 62%);
+      z-index: -1;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    p { color: var(--muted); line-height: 1.75; }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 246, 235, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo { font-size: 24px; }
+    .nav-links { display: flex; gap: 24px; font-size: 14px; color: var(--muted); }
+    .nav-links a:hover { color: var(--ink); }
+
+    section { padding: 96px 24px; }
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-top: 128px;
+      padding-bottom: 128px;
+      background: radial-gradient(circle at 50% 0%, rgba(251,196,62,0.16), transparent 32%), linear-gradient(180deg, rgba(251,246,235,1) 0%, rgba(251,246,235,0.98) 66%, rgba(251,246,235,0) 100%);
+    }
+
+    .glow-one, .glow-two {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(70px);
+      z-index: 0;
+    }
+
+    .glow-one {
+      width: 360px;
+      height: 360px;
+      background: rgba(251,196,62,0.33);
+      right: -100px;
+      top: -130px;
+    }
+
+    .glow-two {
+      width: 320px;
+      height: 320px;
+      background: rgba(230,216,202,0.88);
+      left: -110px;
+      bottom: -120px;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: block;
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: block;
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      font-size: 18px;
+      color: var(--ink);
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(54px, 8vw, 92px);
+      line-height: 0.92;
+      margin: 0 auto;
+      max-width: 830px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 20px;
+      margin: 28px auto 0;
+      text-align: center;
+    }
+
+    .hero .signature {
+      display: block;
+      text-align: center;
+      max-width: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .hero .buttons { justify-content: center; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      box-shadow: 0 10px 26px rgba(28,25,23,0.06);
+    }
+
+    .button.dark { background: var(--ink); color: white; }
+    .button.dark:hover { transform: translateY(-2px); background: var(--yellow); color: var(--ink); }
+    .button.light { border: 1px solid var(--line); background: rgba(255,255,255,0.56); }
+    .button.light:hover { background: var(--yellow); color: var(--ink); transform: translateY(-2px); }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.55);
+      border-radius: 34px;
+      padding: 20px;
+      box-shadow: 0 24px 70px rgba(28,25,23,0.13);
+    }
+
+    .art-card {
+      min-height: 520px;
+      border-radius: 26px;
+      padding: 30px;
+      background:
+        radial-gradient(circle at 30% 20%, var(--yellow) 0 15%, transparent 16%),
+        linear-gradient(135deg, #efe2d1, #fbf6eb 55%, #d2c1ad);
+      display: flex;
+      align-items: stretch;
+    }
+
+    .inner-card {
+      width: 100%;
+      border-radius: 24px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.75);
+      background: rgba(251,246,235,0.72);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .label {
+      margin: 0 0 18px;
+      color: #78716c;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(40px, 5.2vw, 68px);
+      line-height: 1;
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 30px;
+      line-height: 1.08;
+      margin: 0;
+    }
+
+    .center { text-align: center; max-width: 920px; margin: 0 auto; }
+    .center p { max-width: 760px; margin: 26px auto 0; font-size: 18px; }
+
+    .three-grid, .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 56px;
+    }
+
+    .tile, .service-card {
+      border: 1px solid var(--line);
+      background: var(--white);
+      border-radius: 30px;
+      padding: 32px;
+    }
+
+    .tile .num { color: #8a8178; font-size: 14px; margin-bottom: 36px; }
+
+    .dark-section {
+      background: linear-gradient(145deg, #1c1917, #2a2521);
+      color: white;
+    }
+
+    .dark-section p, .dark-section .label { color: rgba(255,255,255,0.68); }
+
+    .service-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 360px;
+    }
+
+    .service-card .buttons { margin-top: 24px; }
+
+    .icon {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      color: var(--yellow);
+      display: block;
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .work-intro { max-width: 760px; }
+    .work-card { transition: 0.25s ease; }
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(28,25,23,0.12);
+    }
+    .mockup {
+      height: 220px;
+      border-radius: 22px;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--soft), var(--cream) 50%, rgba(251,196,62,0.45));
+    }
+    .category {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8a8178;
+      margin-bottom: 14px;
+    }
+
+    .sound-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 46px;
+      align-items: center;
+      background: var(--soft);
+      border-radius: 36px;
+      padding: 56px;
+    }
+
+    .sound-card {
+      border: 1px solid rgba(255,255,255,0.6);
+      background: rgba(251,246,235,0.72);
+      border-radius: 30px;
+      padding: 34px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 46px;
+      align-items: start;
+      max-width: 920px;
+      text-align: center;
+    }
+
+    .story-grid p { max-width: 780px; margin-left: auto; margin-right: auto; }
+
+    .bio-card {
+      background: var(--ink);
+      color: white;
+      border-radius: 34px;
+      padding: 42px;
+    }
+    .bio-card p { color: rgba(255,255,255,0.72); }
+
+    .contact-card {
+      max-width: 940px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #1c1917, #2a2521);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 36px;
+      text-align: center;
+      padding: 64px 58px;
+      box-shadow: 0 22px 70px rgba(28,25,23,0.18);
+      color: white;
+    }
+
+    .contact-card p { max-width: 640px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.72); }
+    .contact-card .label { color: rgba(255,255,255,0.62); }
+    .contact-card h3 { color: white; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      text-align: center;
+      padding: 28px;
+      color: #8a8178;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-grid, .service-layout, .sound-box, .story-grid { grid-template-columns: 1fr; }
+      .three-grid, .work-grid, .service-grid { grid-template-columns: 1fr; }
+      section { padding: 72px 20px; }
+      .hero { padding-top: 82px; padding-bottom: 88px; }
+      h1 { font-size: clamp(46px, 14vw, 72px); }
+      .eyebrow { font-size: 23px !important; }
+      .hero p { font-size: 18px; }
+      .hero .signature { font-size: 18px !important; }
+      .art-card { min-height: 420px; }
+      .sound-box, .contact-card { padding: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="#top" class="logo">One Created Life</a>
+      <nav class="nav-links">
+        <a href="#philosophy">Approach</a>
+        <a href="#services">Services</a>
+        <a href="#story">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" class="hero">
+    <div class="glow-one"></div>
+    <div class="glow-two"></div>
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow" style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size:28px; font-weight:400;">Clarify your brand. Elevate your presence.</div>
+        <h1>Create a Life that feels like yours.</h1>
+        <p>For soulful entrepreneurs and creatives ready to clarify their message, show up with confidence, and create success in a way that feels authentic.</p>
+        <p class="signature" style="font-size:20px; margin:22px auto 0; color:var(--muted); text-align:center;">“Where branding meets becoming.”</p>
+        <div class="buttons" style="margin-top:26px;">
+          <a class="button light" href="#services">Explore Services ↗</a>
+        </div>
+      </div>
+
+      </div>
+  </section>
+
+  <section id="philosophy">
+    <div class="center">
+      <p class="label">Approach</p>
+      <h2>You already have a presence.</h2><p style="font-size:22px; margin-top:18px;">Now it's time to be intentional with it.</p>
+      <p>Your brand is more than a logo or content plan. It is the feeling people get when they experience you. Your energy, message, work, story, and the way it all comes together.</p>
+    </div>
+
+    <div class="container three-grid">
+      <div class="tile">
+        <div class="num">01</div>
+        <h3>Clarity</h3>
+        <p>Know what you stand for, what you offer, and what you want people to remember about you.</p>
+      </div>
+      <div class="tile">
+        <div class="num">02</div>
+        <h3>Congruence</h3>
+        <p>Let your outer world match your inner truth so your presence feels aligned.</p>
+      </div>
+      <div class="tile">
+        <div class="num">03</div>
+        <h3>Expression</h3>
+        <p>Give your ideas, gifts, and voice a form people can experience and connect with.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="dark-section">
+    <div class="container service-layout">
+      <div>
+        <p class="label">Ways to work together</p>
+        <h2>Two Paths, One Purpose</h2>
+        <p>Whether you're building outward or healing inward, both journeys lead you back home to yourself.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card"><div class="icon">✺</div><h3>Brand Clarity & Creative Direction</h3><p>Clarify your message, elevate your presence, and build a brand that reflects the quality of who you are and what you offer.</p><div class="buttons"><a class="button light" href="#contact">Learn More ↗</a></div></div>
+        <div class="service-card"><div class="icon">☾</div><h3>Sound Healing & Inner Reset</h3><p>Restore your energy, regulate your nervous system, and reconnect with yourself through sound, stillness, and spaciousness.</p><div class="buttons"><a class="button light" href="sound-healing.html">Learn More ↗</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story">
+    <div class="container story-grid">
+      <div>
+        <p class="label">The Story & Philosophy Behind OCL</p>
+        <h3>One Created Life was born at a crossroads.</h3><p style="font-size:22px; margin-top:18px;">Follow the expected path or trailblaze a new one.</p>
+        <p>After years of helping brands look polished on the outside, I found myself facing the same question personally: keep following the familiar path, or trust the pull toward something more honest, meaningful, and self-created.</p>
+        <p>One Created Life exists for people ready to choose themselves, shape their presence with intention, and build success that feels true to who they are.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-card">
+      <p class="label">Start here</p>
+      <h3>Ready to Create Your Life?</h3>
+      <p>Take the first step toward alignment. Whether you're drawn to brand coaching or sound healing, let's discover which path is right for you.</p>
+      <div class="buttons" style="justify-content:center; margin-bottom:28px;">
+        <a class="button light" href="https://zcal.co/ravenneshanel/discovery" target="_blank">Book Discovery Call ↗</a>
+      </div>
+      
+    </div>
+  </section>
+
+  <footer>© 2026 One Created Life. Design a life you love.</footer>
+</body>
+</html>

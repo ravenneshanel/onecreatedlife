@@ -1,508 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>One Created Life</title>
-  <meta name="description" content="One Created Life helps soulful entrepreneurs and creatives clarify their brand, elevate their presence, and create a life that feels aligned and authentic." />
-  <style>
-    :root {
-      --cream: #fbf6eb;
-      --soft: #e6d8ca;
-      --yellow: #fbc43e;
-      --ink: #1c1917;
-      --muted: #625b54;
-      --line: rgba(28, 25, 23, 0.14);
-      --white: rgba(255,255,255,0.66);
-    }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f2e8" />
+    <meta name="description" content="One Created Life is being reimagined. A thoughtful new online home is coming soon." />
+    <title>One Created Life | A New Chapter Is Coming</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-    }
+    <style>
+      :root {
+        --paper: #fbfbf8;
+        --warm: #f6f3ec;
+        --ink: #2a2622;
+        --muted: #7c736a;
+        --yellow: #ffcc33;
+        --yellow-deep: #e6b520;
+        --line: #d8d3c9;
+      }
 
-    .signature {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-style: italic;
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      color: var(--ink);
-    }
+      * { box-sizing: border-box; }
 
-    .signature-wrap {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 22px 24px 34px;
-      text-align: center;
-    }
+      html {
+        min-width: 320px;
+        background: var(--paper);
+      }
 
-    .signature-wrap:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(251,196,62,0.10), transparent 62%);
-      z-index: -1;
-    }
+      body {
+        min-height: 100vh;
+        min-height: 100dvh;
+        margin: 0;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 78% 18%, rgba(255, 204, 51, 0.1), transparent 24rem),
+          var(--paper);
+        color: var(--ink);
+        font-family: "Poppins", "Avenir Next", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
 
-    h1, h2, h3, .logo {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-    }
+      .page {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow: hidden;
+        padding: clamp(1.5rem, 3vw, 2.75rem) clamp(1.25rem, 5vw, 5rem);
+        isolation: isolate;
+      }
 
-    p { color: var(--muted); line-height: 1.75; }
-    a { color: inherit; text-decoration: none; }
+      .page::before {
+        position: absolute;
+        z-index: -1;
+        top: clamp(7rem, 18vh, 12rem);
+        right: clamp(-9rem, -5vw, -3rem);
+        width: clamp(17rem, 33vw, 34rem);
+        aspect-ratio: 1;
+        border: 1.5px solid var(--yellow-deep);
+        border-radius: 50% 50% 1.5rem 1.5rem;
+        background: var(--warm);
+        content: "";
+      }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(251, 246, 235, 0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-    }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
 
-    .nav {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: -0.025em;
+        line-height: 1;
+        white-space: nowrap;
+      }
 
-    .logo { font-size: 24px; }
-    .nav-links { display: flex; gap: 24px; font-size: 14px; color: var(--muted); }
-    .nav-links a:hover { color: var(--ink); }
+      .brand-mark {
+        display: block;
+        width: 0.45rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--yellow);
+        color: transparent;
+        font-size: 0;
+      }
 
-    section { padding: 96px 24px; }
-    .container { max-width: 1180px; margin: 0 auto; }
+      .status {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding-top: 128px;
-      padding-bottom: 128px;
-      background: radial-gradient(circle at 50% 0%, rgba(251,196,62,0.16), transparent 32%), linear-gradient(180deg, rgba(251,246,235,1) 0%, rgba(251,246,235,0.98) 66%, rgba(251,246,235,0) 100%);
-    }
+      .status-dot {
+        width: 0.55rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--yellow);
+        box-shadow: 0 0 0 0.35rem rgba(255, 204, 51, 0.16);
+      }
 
-    .glow-one, .glow-two {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(70px);
-      z-index: 0;
-    }
+      main {
+        display: flex;
+        align-items: center;
+        padding: clamp(4rem, 10vh, 8rem) 0;
+      }
 
-    .glow-one {
-      width: 360px;
-      height: 360px;
-      background: rgba(251,196,62,0.33);
-      right: -100px;
-      top: -130px;
-    }
+      .content {
+        width: min(100%, 51rem);
+        margin-left: clamp(0rem, 4vw, 4rem);
+      }
 
-    .glow-two {
-      width: 320px;
-      height: 320px;
-      background: rgba(230,216,202,0.88);
-      left: -110px;
-      bottom: -120px;
-    }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+        color: var(--yellow-deep);
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
 
-    .hero-grid {
-      position: relative;
-      z-index: 1;
-      display: block;
-      max-width: 920px;
-      margin: 0 auto;
-      text-align: center;
-    }
+      .eyebrow::before {
+        width: 2.7rem;
+        height: 1px;
+        background: var(--yellow-deep);
+        content: "";
+      }
 
-    .eyebrow {
-      display: block;
-      border: none;
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      font-size: 18px;
-      color: var(--ink);
-      font-weight: 600;
-      letter-spacing: 0;
-      text-transform: none;
-      margin-bottom: 18px;
-    }
+      h1 {
+        max-width: 12.5ch;
+        margin: 0;
+        font-size: clamp(3rem, 5.8vw, 4.5rem);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 1.06;
+        text-wrap: balance;
+      }
 
-    h1 {
-      font-size: clamp(54px, 8vw, 92px);
-      line-height: 0.92;
-      margin: 0 auto;
-      max-width: 830px;
-    }
+      h1 em {
+        display: inline-block;
+        padding: 0 0.12em;
+        border-radius: 0.18rem;
+        background: linear-gradient(transparent 18%, rgba(255, 204, 51, 0.62) 18%, rgba(255, 204, 51, 0.62) 92%, transparent 92%);
+        font-style: normal;
+        font-weight: 500;
+      }
 
-    .hero p {
-      max-width: 700px;
-      font-size: 20px;
-      margin: 28px auto 0;
-      text-align: center;
-    }
+      .intro {
+        max-width: 35rem;
+        margin: clamp(2rem, 4vw, 3.25rem) 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+        line-height: 1.7;
+      }
 
-    .hero .signature {
-      display: block;
-      text-align: center;
-      max-width: none;
-      margin-left: auto;
-      margin-right: auto;
-    }
+      @media (max-width: 680px) {
+        body {
+          background:
+            radial-gradient(circle at 100% 25%, rgba(255, 204, 51, 0.1), transparent 17rem),
+            var(--paper);
+        }
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 34px;
-    }
+        .page { padding: 1.35rem 1.25rem 1.5rem; }
 
-    .hero .buttons { justify-content: center; }
+        .page::before {
+          top: 24%;
+          right: -10rem;
+        }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 14px 24px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: 0.25s ease;
-      box-shadow: 0 10px 26px rgba(28,25,23,0.06);
-    }
+        .brand {
+          font-size: 1.05rem;
+        }
 
-    .button.dark { background: var(--ink); color: white; }
-    .button.dark:hover { transform: translateY(-2px); background: var(--yellow); color: var(--ink); }
-    .button.light { border: 1px solid var(--line); background: rgba(255,255,255,0.56); }
-    .button.light:hover { background: var(--yellow); color: var(--ink); transform: translateY(-2px); }
+        .status {
+          font-size: 0.57rem;
+          letter-spacing: 0.13em;
+        }
 
-    .hero-card {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.55);
-      border-radius: 34px;
-      padding: 20px;
-      box-shadow: 0 24px 70px rgba(28,25,23,0.13);
-    }
+        main { padding: 4.5rem 0 5rem; }
+        .content { margin-left: 0; }
 
-    .art-card {
-      min-height: 520px;
-      border-radius: 26px;
-      padding: 30px;
-      background:
-        radial-gradient(circle at 30% 20%, var(--yellow) 0 15%, transparent 16%),
-        linear-gradient(135deg, #efe2d1, #fbf6eb 55%, #d2c1ad);
-      display: flex;
-      align-items: stretch;
-    }
+        h1 {
+          max-width: 11ch;
+          font-size: clamp(2.65rem, 12vw, 3.5rem);
+          line-height: 1.08;
+        }
 
-    .inner-card {
-      width: 100%;
-      border-radius: 24px;
-      padding: 28px;
-      border: 1px solid rgba(255,255,255,0.75);
-      background: rgba(251,246,235,0.72);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+        .intro {
+          max-width: 28rem;
+          font-size: 1rem;
+          line-height: 1.65;
+        }
 
-    .label {
-      margin: 0 0 18px;
-      color: #78716c;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-    }
+      }
 
-    h2 {
-      font-size: clamp(40px, 5.2vw, 68px);
-      line-height: 1;
-      margin: 0;
-    }
+      @media (prefers-reduced-motion: no-preference) {
+        .content > * {
+          animation: enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
 
-    h3 {
-      font-size: 30px;
-      line-height: 1.08;
-      margin: 0;
-    }
+        .content > :nth-child(2) { animation-delay: 90ms; }
+        .content > :nth-child(3) { animation-delay: 180ms; }
 
-    .center { text-align: center; max-width: 920px; margin: 0 auto; }
+        @keyframes enter {
+          from {
+            opacity: 0;
+            transform: translateY(1rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+    </style>
+  </head>
 
-    #philosophy {
-      background: #fffdf8;
-    }
-    .center p { max-width: 760px; margin: 26px auto 0; font-size: 18px; }
-
-    .three-grid, .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 56px;
-    }
-
-    .tile, .service-card {
-      border: 1px solid var(--line);
-      background: var(--white);
-      border-radius: 30px;
-      padding: 32px;
-    }
-
-    .tile {
-      background: linear-gradient(145deg, #f3eadf, #fbf6eb);
-      box-shadow: 0 18px 46px rgba(28,25,23,0.06);
-    }
-
-    .tile .num { color: #8a8178; font-size: 14px; margin-bottom: 36px; }
-
-    .dark-section {
-      background: linear-gradient(145deg, #1c1917, #2a2521);
-      color: white;
-    }
-
-    .dark-section p, .dark-section .label { color: rgba(255,255,255,0.68); }
-
-    .service-layout {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 50px;
-      align-items: start;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .service-card {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.12);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 360px;
-    }
-
-    .service-card .buttons { margin-top: 24px; }
-
-    .icon {
-      width: auto;
-      height: auto;
-      border-radius: 0;
-      background: transparent;
-      color: var(--yellow);
-      display: block;
-      font-size: 36px;
-      line-height: 1;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .work-intro { max-width: 760px; }
-    .work-card { transition: 0.25s ease; }
-    .work-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 50px rgba(28,25,23,0.12);
-    }
-    .mockup {
-      height: 220px;
-      border-radius: 22px;
-      margin-bottom: 24px;
-      background: linear-gradient(135deg, var(--soft), var(--cream) 50%, rgba(251,196,62,0.45));
-    }
-    .category {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #8a8178;
-      margin-bottom: 14px;
-    }
-
-    .sound-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 46px;
-      align-items: center;
-      background: var(--soft);
-      border-radius: 36px;
-      padding: 56px;
-    }
-
-    .sound-card {
-      border: 1px solid rgba(255,255,255,0.6);
-      background: rgba(251,246,235,0.72);
-      border-radius: 30px;
-      padding: 34px;
-    }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 46px;
-      align-items: start;
-      max-width: 920px;
-      text-align: center;
-    }
-
-    .story-grid p { max-width: 780px; margin-left: auto; margin-right: auto; }
-
-    .bio-card {
-      background: var(--ink);
-      color: white;
-      border-radius: 34px;
-      padding: 42px;
-    }
-    .bio-card p { color: rgba(255,255,255,0.72); }
-
-    .contact-card {
-      max-width: 940px;
-      margin: 0 auto;
-      background: linear-gradient(145deg, #1c1917, #2a2521);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 36px;
-      text-align: center;
-      padding: 64px 58px;
-      box-shadow: 0 22px 70px rgba(28,25,23,0.18);
-      color: white;
-    }
-
-    .contact-card p { max-width: 640px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.72); }
-    .contact-card .label { color: rgba(255,255,255,0.62); }
-    .contact-card h3 { color: var(--yellow); }
-
-    footer {
-      border-top: 1px solid var(--line);
-      text-align: center;
-      padding: 28px;
-      color: #8a8178;
-      font-size: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .hero-grid, .service-layout, .sound-box, .story-grid { grid-template-columns: 1fr; }
-      .three-grid, .work-grid, .service-grid { grid-template-columns: 1fr; }
-      section { padding: 72px 20px; }
-      .hero { padding-top: 82px; padding-bottom: 88px; }
-      h1 { font-size: clamp(46px, 14vw, 72px); }
-      .eyebrow { font-size: 23px !important; }
-      .hero p { font-size: 18px; }
-      .hero .signature { font-size: 18px !important; }
-      .art-card { min-height: 420px; }
-      .sound-box, .contact-card { padding: 32px; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="nav">
-      <a href="#top" class="logo">One Created Life</a>
-      <nav class="nav-links">
-        <a href="#philosophy">Approach</a>
-        <a href="#services">Services</a>
-        <a href="#story">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <section id="top" class="hero">
-    <div class="glow-one"></div>
-    <div class="glow-two"></div>
-    <div class="container hero-grid">
-      <div>
-        <h1>Clarify your brand. Elevate your online presence.</h1>
-        <p style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size:28px; margin:22px auto 0; color:var(--ink);">Create a Life that feels like yours.</p>
-        <p>For soulful entrepreneurs and creatives ready to clarify their message, show up with confidence, and create success in a way that feels authentic.</p>
-        <div class="buttons" style="margin-top:26px;">
-          <a class="button light" href="#services">Explore Services ↗</a>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand" aria-label="One Created Life">
+          <span class="brand-mark" aria-hidden="true">O</span>
+          <span>One Created Life</span>
         </div>
-      </div>
+        <div class="status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Coming soon
+        </div>
+      </header>
 
-      </div>
-  </section>
-
-  <section id="philosophy">
-    <div class="center">
-      <p class="label">Approach</p>
-      <h2>You already have a presence.</h2><p style="font-size:22px; margin-top:18px;">Now it's time to be intentional with it.</p>
-      <p>Your brand is more than a logo or content plan. It is the feeling people get when they experience you. Your energy, message, work, story, and the way it all comes together.</p>
+      <main>
+        <div class="content">
+          <p class="eyebrow">A new chapter</p>
+          <h1>Something <em>new</em> is taking shape.</h1>
+          <p class="intro">
+            This space is being thoughtfully reimagined. A new online home for
+            better brands, honest expression, and building an aligned life is
+            coming soon.
+          </p>
+        </div>
+      </main>
     </div>
-
-    <div class="container three-grid">
-      <div class="tile">
-        <div class="num">01</div>
-        <h3>Clarity</h3>
-        <p>Know what you stand for, what you offer, and what you want people to remember about you.</p>
-      </div>
-      <div class="tile">
-        <div class="num">02</div>
-        <h3>Alignment</h3>
-        <p>Let your outer world match your inner truth so your presence feels clear, grounded, and aligned.</p>
-      </div>
-      <div class="tile">
-        <div class="num">03</div>
-        <h3>Expression</h3>
-        <p>Give your ideas, gifts, and voice a form people can experience and connect with.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="dark-section">
-    <div class="container service-layout">
-      <div>
-        <p class="label">Ways to work together</p>
-        <h2>Two Paths, One Purpose</h2>
-        <p>Whether you're building outward or healing inward, both journeys lead you back home to yourself.</p>
-      </div>
-
-      <div class="service-grid">
-        <div class="service-card"><div class="icon">✺</div><h3>Brand Clarity & Creative Direction</h3><p>Clarify your message, elevate your presence, and build a brand that reflects the quality of who you are and what you offer.</p></div>
-        <div class="service-card"><div class="icon">☾</div><h3>Sound Healing & Inner Reset</h3><p>Restore your energy, regulate your nervous system, and reconnect with yourself through sound, stillness, and spaciousness.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="story">
-    <div class="container story-grid">
-      <div>
-        <p class="label">The Story & Philosophy Behind OCL</p>
-        <h2>One Created Life was born at a crossroads.</h2><p style="font-size:22px; margin-top:18px;">Follow the expected path or trailblaze a new one.</p>
-        <p>After years of helping brands look polished on the outside, I found myself facing the same question personally: keep following the familiar path, or trust the pull toward something more honest, meaningful, and self-created.</p>
-        <p>One Created Life exists for people ready to choose themselves, shape their presence with intention, and build success that feels true to who they are.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="contact-card">
-      <p class="label">Start here</p>
-      <h3>Ready to Create Your Life?</h3>
-      <p>Take the first step toward alignment. Whether you're drawn to brand coaching or sound healing, let's discover which path is right for you.</p>
-      <div class="buttons" style="justify-content:center; margin-bottom:28px;">
-        <a class="button light" href="https://zcal.co/ravenneshanel/discovery" target="_blank">Book Discovery Call ↗</a>
-      </div>
-      
-    </div>
-  </section>
-
-  <footer>© 2026 One Created Life. Design a life you love.</footer>
-</body>
+  </body>
 </html>

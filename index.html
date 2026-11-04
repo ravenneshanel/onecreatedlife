@@ -293,13 +293,13 @@
   .pkg-under a { color: var(--gold-deep); text-decoration: none; border-bottom: 1px solid var(--gold); }
 
   /* ---------- quiz invite ---------- */
-  .quiz-band { background: linear-gradient(125% 110% at 0% 0%, #fff7e0 0%, var(--oatmeal-soft) 62%); border: 1px solid var(--oatmeal); border-radius: 24px; padding: 50px 54px; display: flex; align-items: center; justify-content: space-between; gap: 44px; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
+  .support-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 58px; align-items: stretch; }
+  .quiz-band { background: linear-gradient(125% 110% at 0% 0%, #fff7e0 0%, var(--oatmeal-soft) 62%); border: 1px solid var(--oatmeal); border-radius: 24px; padding: 48px 44px; display: flex; flex-direction: column; align-items: flex-start; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
   .quiz-band::after { content: "✺"; position: absolute; right: 30px; top: 18px; font-size: 30px; color: var(--gold-deep); opacity: 0.35; }
   .quiz-band .qt { max-width: 56ch; }
   .quiz-band h2 { margin: 0 0 12px; font-size: clamp(28px, 3.4vw, 40px); }
   .quiz-band .lede { margin: 0; }
-  .quiz-band .btn { flex: none; }
-  @media (max-width: 760px) { .quiz-band { flex-direction: column; align-items: flex-start; padding: 38px 30px; } }
+  .quiz-band .btn { flex: none; margin-top: 30px; }
 
   /* ---------- testimonials ---------- */
   .proof-carousel { margin-top: 52px; overflow: hidden; position: relative; }
@@ -335,7 +335,8 @@
   .about p { color: var(--ink-soft); font-size: 17px; }
 
   /* ---------- faq ---------- */
-  .faq-wrap { max-width: 760px; margin: 52px auto 0; }
+  .faq-panel .section-head { max-width: none; }
+  .faq-wrap { max-width: none; margin: 22px 0 0; }
   .faq-item { border-bottom: 1px solid var(--rule); }
   .faq-q {
     width: 100%; background: none; border: none; cursor: pointer; text-align: left;
@@ -405,6 +406,7 @@
     .hero-art { max-width: 380px; margin: 0 auto; width: 100%; }
     .about-photo { max-width: 252px; margin: 0 auto; }
     .pillars, .steps, .pkg-grid { grid-template-columns: 1fr; }
+    .support-grid { grid-template-columns: 1fr; gap: 46px; }
     .pkg-main { order: -1; }
     .pkg.featured { transform: none; }
     .pkg.featured:hover { transform: translateY(-6px); }
@@ -418,6 +420,7 @@
     .pkg-main { padding: 38px 28px 32px; }
     .pkg-main .pkg-price { margin: 30px 0 32px; }
     .quote { flex-basis: 88%; margin: 0 6%; padding: 42px 28px; min-height: 340px; }
+    .quiz-band { padding: 38px 30px; }
     .nav-links { position: fixed; inset: 0 0 0 auto; width: min(78vw, 320px); background: var(--bg);
       flex-direction: column; align-items: flex-start; justify-content: center; gap: 26px; padding: 40px;
       transform: translateX(100%); transition: transform .4s ease; box-shadow: var(--shadow-lg); }
@@ -608,10 +611,11 @@
   </div>
 </section>
 
-<!-- ============ QUIZ INVITE ============ -->
-<section class="pad" id="quiz-invite">
+<!-- ============ QUIZ + FAQ ============ -->
+<section class="pad" id="faq">
   <div class="shell">
-    <div class="quiz-band" data-reveal>
+    <div class="support-grid">
+    <div class="quiz-band" id="quiz-invite" data-reveal>
       <div class="qt">
         <p class="eyebrow">Not ready to book?</p>
         <h2>Start with the free 2-minute check-in</h2>
@@ -619,17 +623,12 @@
       </div>
       <a href="quiz.html" class="btn">Take the free check-in <span class="arrow">→</span></a>
     </div>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section class="pad" id="faq">
-  <div class="shell">
-    <div class="section-head center" data-reveal>
+    <div class="faq-panel">
+    <div class="section-head" data-reveal>
       <p class="eyebrow">Questions</p>
       <h2>Good to know</h2>
     </div>
-    <div class="faq-wrap" id="faq">
+    <div class="faq-wrap">
       <div class="faq-item" data-reveal>
         <button class="faq-q">I'm not sure which option is right for me.<span class="pm"></span></button>
         <div class="faq-a"><p>Start with a discovery call. We'll talk it through and find the honest answer together, even if that answer is "not yet."</p></div>
@@ -642,6 +641,8 @@
         <button class="faq-q">Is this coaching, or done-for-you?<span class="pm"></span></button>
         <div class="faq-a"><p>It's collaborative. You bring the goals and the overarching vision. I bring the strategy, creative direction, and honest feedback. We build it together.</p></div>
       </div>
+    </div>
+    </div>
     </div>
   </div>
 </section>
@@ -703,7 +704,7 @@
     const stopTestimonials = () => clearInterval(testimonialTimer);
     const startTestimonials = () => {
       stopTestimonials();
-      if (!reduceMotion) testimonialTimer = setInterval(() => showTestimonial(testimonialIndex + 1), 6000);
+      if (!reduceMotion) testimonialTimer = setInterval(() => showTestimonial(testimonialIndex + 1), 10000);
     };
 
     dots.forEach((dot, i) => dot.addEventListener('click', () => { showTestimonial(i); startTestimonials(); }));

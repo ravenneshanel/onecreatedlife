@@ -46,6 +46,7 @@
   .work-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
   .wc-img{aspect-ratio:4/3;overflow:hidden;background:var(--oatmeal-soft)}
   .wc-img img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .wc-img.cindy img{object-position:center 78%}
   .work-card:hover .wc-img img{transform:scale(1.045)}
   .wc-img.contain img{object-fit:contain;padding:30px}
   .wc-img.oceans{background:#fde3b9}
@@ -90,8 +91,7 @@
       <a href="portfolio.html" class="active">Portfolio</a>
       <a href="index.html#work">Work With Me</a>
       <a href="index.html#about">About</a>
-      <a href="sound.html">Sound</a>
-      <a href="index.html#book" class="btn">Book a call</a>
+      <a href="sound.html" class="btn btn-sound">Sound <span class="sound-moon" aria-hidden="true">☾</span></a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -115,7 +115,7 @@
     <div class="work-grid">
 
       <a class="work-card" data-reveal href="work/cindy-gillies.html">
-        <div class="wc-img"><span class="wc-view">View →</span><img src="assets/work/cindy-gillies.jpg" alt="Cindy Gillies Design" loading="lazy" /></div>
+        <div class="wc-img cindy"><span class="wc-view">View →</span><img src="assets/work/cindy-gillies.jpg" alt="Cindy Gillies Design" loading="lazy" /></div>
         <div class="wc-cap"><span class="wc-cat">Brand Identity</span></div>
       </a>
 
@@ -168,7 +168,6 @@
     <p class="eyebrow" data-reveal>Your brand is next</p>
     <h2 data-reveal>Like what you see? Let's make yours the next one!</h2>
     <p data-reveal>Whether you're starting from scratch or refreshing what you've outgrown, we'll build a brand that finally looks like who you are now.</p>
-    <div data-reveal><a href="index.html#book" class="btn btn-light">Book a discovery call <span class="arrow">→</span></a></div>
   </div>
 </section>
 

@@ -100,6 +100,22 @@ h3,
   font-family: var(--site-font);
 }
 
+.btn.btn-sound {
+  background: var(--bg-warm);
+  color: var(--ink);
+  border-color: var(--oatmeal);
+}
+
+.btn.btn-sound:hover {
+  background: var(--oatmeal);
+  box-shadow: 0 14px 28px -18px rgba(42, 38, 34, 0.3);
+}
+
+.sound-moon {
+  font-size: 16px;
+  line-height: 1;
+}
+
 .p-hero h1,
 .s-hero h1 {
   font-size: clamp(38px, 5.4vw, 68px);

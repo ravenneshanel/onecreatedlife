@@ -12,6 +12,37 @@ select {
   font-family: var(--site-font);
 }
 
+/* Keep line endings polished across responsive layouts. */
+p,
+li,
+blockquote,
+figcaption {
+  text-wrap: pretty;
+  text-wrap-style: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+.eyebrow,
+.q-text,
+.r-headline,
+.cta-headline,
+.cs-cta h2,
+.cs-next a,
+.p-hero .meta,
+.s-photo .ph,
+.s-band .cap {
+  text-wrap: balance;
+  text-wrap-style: balance;
+}
+
+.brand,
+.btn {
+  text-wrap: nowrap;
+}
+
 h1,
 h2,
 h3,
@@ -98,6 +129,22 @@ h3,
 @media (max-width: 680px) {
   .brand {
     font-size: 18px;
+  }
+
+  .cs-next {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .cs-next a,
+  .cs-next a.nx {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cs-next a.nx {
+    text-align: right;
   }
 
   .eyebrow,

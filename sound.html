@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sound Healing &amp; Inner Reset — One Created Life</title>
+<meta name="description" content="Restore your energy, settle your nervous system, and reconnect with yourself through sound, stillness, and spaciousness." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root {
+    --bg: #fbfbf8; --bg-warm: #f6f3ec; --oatmeal: #e7e3da; --oatmeal-soft: #efece5;
+    --ink: #2a2622; --ink-soft: rgba(42,38,34,0.78); --ink-muted: #7c736a; --rule: #d8d3c9;
+    --gold: #ffcc33; --gold-deep: #e6b520;
+    --shadow-sm: 0 1px 0 rgba(42,38,34,0.04), 0 18px 40px -28px rgba(42,38,34,0.22);
+    --shadow-lg: 0 2px 0 rgba(42,38,34,0.03), 0 50px 90px -50px rgba(42,38,34,0.40);
+    --maxw: 1140px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Quicksand', system-ui, sans-serif;
+    line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--gold); color: var(--ink); }
+  a { color: inherit; }
+  body::before { content:""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .shell { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  .eyebrow { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 19px; color: var(--gold-deep); margin: 0 0 18px; }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: -0.005em; color: var(--ink); }
+  h1 { font-size: clamp(46px, 6.6vw, 86px); line-height: 1.02; margin: 0; }
+  h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; margin: 0 0 22px; }
+  h3 { font-size: 23px; margin: 0 0 10px; }
+  p { margin: 0 0 18px; }
+  .lede { font-size: 19px; color: var(--ink-soft); line-height: 1.6; max-width: 48ch; }
+
+  .btn { display: inline-flex; align-items: center; gap: 9px; background: var(--gold); color: var(--ink);
+    border: none; border-radius: 999px; padding: 16px 32px; font-family: 'Quicksand', sans-serif; font-weight: 600;
+    font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer;
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease; }
+  .btn:hover { background: var(--gold-deep); transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(230,181,32,0.65); }
+  .btn .arrow { transition: transform .3s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+  .btn-light { background: var(--bg); color: var(--ink); }
+  .textlink { font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+    color: var(--ink); display: inline-flex; gap: 8px; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color .25s; }
+  .textlink:hover { border-color: var(--gold-deep); }
+
+  header.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: background .4s, box-shadow .4s, padding .4s; padding: 22px 0; }
+  header.nav.scrolled { background: rgba(251,251,248,0.82); backdrop-filter: blur(14px) saturate(1.1); box-shadow: 0 1px 0 rgba(42,38,34,0.06); padding: 14px 0; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 500; text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+  .brand .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a:not(.btn) { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; color: var(--ink-soft); text-decoration: none; transition: color .25s; }
+  .nav-links a:not(.btn):hover { color: var(--ink); }
+
+  .pad { padding: 104px 0; }
+  .center { text-align: center; }
+
+  /* hero */
+  .s-hero { padding: 188px 0 120px; text-align: center; position: relative; overflow: hidden; }
+  .s-hero .halo { position: absolute; top: 60px; left: 50%; transform: translateX(-50%); width: 540px; height: 540px; max-width: 92vw; pointer-events: none; }
+  .s-hero .halo span { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(230,181,32,0.18); animation: pulse 6s ease-in-out infinite; }
+  .s-hero .halo span:nth-child(2) { inset: 14%; border-color: rgba(230,181,32,0.14); animation-delay: .6s; }
+  .s-hero .halo span:nth-child(3) { inset: 28%; border-color: rgba(230,181,32,0.10); animation-delay: 1.2s; }
+  @keyframes pulse { 0%,100% { transform: scale(1); opacity: .8; } 50% { transform: scale(1.04); opacity: 1; } }
+  .s-hero .inner { position: relative; z-index: 3; max-width: 760px; margin: 0 auto; }
+  .s-hero h1 .ul { background: linear-gradient(transparent 62%, rgba(255,204,51,0.5) 62%); padding: 0 2px; }
+  .s-hero .lede { margin: 28px auto 36px; }
+  .glyph-row { font-size: 22px; color: var(--gold-deep); letter-spacing: 0.5em; margin-bottom: 26px; }
+
+  /* what it is */
+  .two { display: grid; grid-template-columns: 0.85fr 1fr; gap: 64px; align-items: center; }
+  .s-photo { aspect-ratio: 1/1; border-radius: 50%; background: radial-gradient(120% 120% at 50% 20%, #f0e7cf 0%, var(--oatmeal) 55%, #dad3c4 100%);
+    box-shadow: var(--shadow-lg); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .s-photo .ph { font-family:'Cormorant Garamond',serif; font-style: italic; color: var(--ink-muted); font-size: 16px; text-align: center; padding: 0 30px; }
+  .s-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
+
+  /* full-width session band */
+  .s-band { width: 100%; height: clamp(340px, 56vh, 600px); overflow: hidden; position: relative; }
+  .s-band img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block; }
+  .s-band .cap { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%); color: var(--bg); font-family:'Cormorant Garamond',serif; font-style: italic; font-size: 21px; text-shadow: 0 2px 24px rgba(0,0,0,0.5); text-align: center; z-index: 2; }
+  .s-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,38,34,0) 55%, rgba(42,38,34,0.45) 100%); }
+
+  /* feel grid */
+  .feel { background: var(--bg-warm); }
+  .feel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 54px; }
+  .feel-card { background: var(--bg); border: 1px solid var(--oatmeal); border-radius: 20px; padding: 36px 30px; box-shadow: var(--shadow-sm); transition: transform .4s, box-shadow .4s; }
+  .feel-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .feel-card .g { font-size: 26px; color: var(--gold-deep); margin-bottom: 16px; }
+  .feel-card p { margin: 0; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+
+  /* benefits list */
+  .benefits { max-width: 720px; margin: 48px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; }
+  .benefit { display: flex; gap: 14px; align-items: flex-start; font-size: 16.5px; color: var(--ink); }
+  .benefit::before { content: "✺"; color: var(--gold-deep); flex: none; }
+
+  /* final */
+  .s-final { background: var(--ink); color: var(--bg); text-align: center; position: relative; overflow: hidden; }
+  .s-final::after { content:""; position: absolute; width: 420px; height: 420px; border-radius: 50%; border: 1.5px solid rgba(255,204,51,0.16); top: -160px; left: 50%; transform: translateX(-50%); }
+  .s-final h2 { color: var(--bg); max-width: 18ch; margin: 0 auto 22px; }
+  .s-final .eyebrow { color: var(--gold); }
+  .s-final p { color: rgba(251,251,248,0.78); max-width: 46ch; margin: 0 auto 36px; font-size: 18px; }
+
+  footer { background: var(--bg); padding: 40px 0; text-align: center; }
+  .foot-bottom { max-width: 600px; margin: 0 auto; font-size: 13px; color: var(--ink-muted); }
+
+  .js [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+  [data-reveal][data-d="1"] { transition-delay: .08s; } [data-reveal][data-d="2"] { transition-delay: .16s; } [data-reveal][data-d="3"] { transition-delay: .24s; }
+  @media (prefers-reduced-motion: reduce) { [data-reveal]{opacity:1;transform:none;transition:none;} .s-hero .halo span{animation:none;} }
+
+  @media (max-width: 940px) { .two { grid-template-columns: 1fr; gap: 44px; } .s-photo { max-width: 320px; margin: 0 auto; } .feel-grid { grid-template-columns: 1fr; } .benefits { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) { .shell { padding: 0 22px; } .pad { padding: 76px 0; } .s-hero { padding: 150px 0 90px; } .nav-links a:not(.btn) { display: none; } }
+</style>
+<link rel="stylesheet" href="assets/site-system.css" />
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="shell nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span>One Created Life</a>
+    <nav class="nav-links">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="index.html#work">Work With Me</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#book" class="btn">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="s-hero">
+  <div class="halo"><span></span><span></span><span></span></div>
+  <div class="shell">
+    <div class="inner">
+      <div class="glyph-row" data-reveal>✺ ・ ☾ ・ ✺</div>
+      <p class="eyebrow" data-reveal data-d="1">Sound Healing &amp; Inner Reset</p>
+      <h1 data-reveal data-d="1">Come back to <span class="ul">yourself</span></h1>
+      <p class="lede" data-reveal data-d="2">Restore your energy, settle your nervous system, and reconnect with yourself through sound, stillness, and spaciousness. A quiet hour to put down everything you've been carrying.</p>
+      <div data-reveal data-d="3"><a href="index.html#book" class="btn">Book a session <span class="arrow">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT IS -->
+<section class="pad">
+  <div class="shell two">
+    <div class="s-photo" data-reveal><img src="assets/sound-bowls.jpg" alt="Ravenne with her crystal singing bowls" /></div>
+    <div>
+      <p class="eyebrow" data-reveal>What it is</p>
+      <h2 data-reveal data-d="1">A reset for a nervous system that's been running on full</h2>
+      <p class="lede" data-reveal data-d="1" style="max-width:none;">So much of feeling stuck isn't a thinking problem, it's a body that hasn't had a chance to settle. A sound session is a guided hour of rest, where layered tones and vibration help your system drop out of go-mode and into something slower and clearer.</p>
+      <p data-reveal data-d="2" style="color:var(--ink-soft);">You don't need any experience. You don't need to believe anything in particular. You just lie down, get comfortable, and let the sound do the work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT FEELS -->
+<section class="feel pad">
+  <div class="shell">
+    <div class="center" data-reveal style="max-width:620px;margin:0 auto;">
+      <p class="eyebrow">What it feels like</p>
+      <h2>An hour that asks nothing of you</h2>
+    </div>
+    <div class="feel-grid">
+      <div class="feel-card" data-reveal><div class="g">☾</div><h3>Settle</h3><p>We start by letting your body arrive. Breath slows, shoulders drop, the running list quiets down.</p></div>
+      <div class="feel-card" data-reveal data-d="1"><div class="g">✺</div><h3>Drift</h3><p>Sound and vibration carry you into a deep, restful state, the kind of rest most days never make room for.</p></div>
+      <div class="feel-card" data-reveal data-d="2"><div class="g">❋</div><h3>Return</h3><p>You come back softer and clearer, with a little more space between you and everything you were carrying.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION BAND -->
+<section class="s-band" data-reveal>
+  <img src="assets/sound-session.jpg" alt="Ravenne leading a crystal bowl sound healing session" />
+  <div class="cap">Held with care, in person.</div>
+</section>
+
+<!-- BENEFITS -->
+<section class="pad">
+  <div class="shell">
+    <div class="center" data-reveal style="max-width:620px;margin:0 auto;">
+      <p class="eyebrow">Why people come</p>
+      <h2>What a reset can give back</h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit" data-reveal>A calmer, more settled nervous system</div>
+      <div class="benefit" data-reveal>Relief from the wired, tired feeling</div>
+      <div class="benefit" data-reveal data-d="1">Deeper rest than ordinary sleep</div>
+      <div class="benefit" data-reveal data-d="1">Space to hear yourself think again</div>
+      <div class="benefit" data-reveal data-d="2">A softer landing after a hard season</div>
+      <div class="benefit" data-reveal data-d="2">Reconnection with what actually matters</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="s-final pad">
+  <div class="shell" style="position:relative;z-index:2;">
+    <p class="eyebrow" data-reveal>An open invitation</p>
+    <h2 data-reveal data-d="1">Give yourself one quiet hour</h2>
+    <p data-reveal data-d="2">Whether you're stretched thin, between chapters, or just overdue for stillness, this is a soft place to land.</p>
+    <div data-reveal data-d="3"><a href="index.html#book" class="btn btn-light">Book a session <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <div class="foot-bottom">© 2026 One Created Life. &nbsp;·&nbsp; <a href="index.html" class="textlink" style="display:inline;border:none;text-transform:none;letter-spacing:0;font-weight:500;color:var(--gold-deep);">Back to home</a></div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  const io = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

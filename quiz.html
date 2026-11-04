@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Where are you at? — A free check-in · One Created Life</title>
+<meta name="description" content="A free 2-minute check-in to see where you are with being seen, and whether we'd be a good fit to work together." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<style>
+  :root {
+    --bg: #fbfbf8; --oatmeal: #e7e3da; --oatmeal-soft: #efece5; --ink: #2a2622;
+    --ink-soft: rgba(42,38,34,0.78); --ink-muted: #7c736a; --rule: #c5c1b9; --gold: #ffcc33; --gold-deep: #e6b520;
+    --shadow: 0 1px 0 rgba(42,38,34,0.04), 0 30px 60px -30px rgba(42,38,34,0.16);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Quicksand', system-ui, sans-serif;
+    font-weight: 400; line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--gold); color: var(--ink); }
+  a { color: inherit; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 40px 28px 96px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+  .nav { margin-bottom: 56px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+  .brand { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 9px; }
+  .brand .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  .nav a.back { font-size: 12px; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
+  .nav a.back:hover { color: var(--ink); }
+
+  .eyebrow { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 19px; color: var(--gold-deep); margin-bottom: 20px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(40px, 6vw, 62px); line-height: 1.06; letter-spacing: -0.005em; margin: 0 0 24px; }
+  h1 em { font-style: italic; font-weight: 400; }
+  .lede { font-size: 18px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 40px; max-width: 42ch; }
+  .start-btn { background: var(--gold); color: var(--ink); border: none; border-radius: 999px; padding: 16px 36px;
+    font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all .3s ease; }
+  .start-btn:hover { background: var(--gold-deep); transform: translateY(-1px); box-shadow: 0 12px 28px -10px rgba(255,204,51,.6); }
+  .meta { margin-top: 30px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--ink-muted); }
+
+  .screen { display: none; } .screen.active { display: block; animation: fade .6s ease-out; }
+  @keyframes fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+  .progress { display: flex; gap: 6px; margin-bottom: 40px; }
+  .pstep { flex: 1; height: 2px; background: var(--rule); border-radius: 2px; transition: background .4s ease; }
+  .pstep.done { background: var(--ink); } .pstep.current { background: var(--gold); }
+  .q-num { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-deep); font-size: 18px; margin-bottom: 12px; }
+  .q-text { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 34px); line-height: 1.22; margin: 0 0 34px; letter-spacing: -0.005em; }
+  .choices { display: flex; flex-direction: column; gap: 12px; }
+  .choice { background: var(--oatmeal); color: var(--ink); border: 1px solid transparent; border-radius: 14px; padding: 18px 24px;
+    text-align: left; font-size: 15.5px; font-family: 'Quicksand', sans-serif; line-height: 1.5; cursor: pointer; transition: all .25s ease; }
+  .choice:hover { border-color: var(--gold); background: var(--oatmeal-soft); transform: translateX(4px); }
+
+  .r-arch { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--gold-deep); margin-bottom: 14px; }
+  .r-headline { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(32px, 5vw, 48px); line-height: 1.12; margin: 0 0 28px; max-width: 20ch; letter-spacing: -0.005em; }
+  .r-body { color: var(--ink-soft); margin-bottom: 28px; font-size: 16.5px; line-height: 1.7; }
+  .r-body strong { color: var(--ink); font-weight: 600; }
+  .r-rec { background: var(--oatmeal); border-left: 3px solid var(--gold); padding: 22px 26px; margin: 30px 0; border-radius: 0 14px 14px 0; }
+  .r-rec .label { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-deep); font-size: 16px; margin-bottom: 8px; }
+  .r-rec .body { color: var(--ink); font-size: 16px; line-height: 1.55; }
+  .cta { background: var(--ink); color: var(--bg); border-radius: 18px; padding: 36px 32px; margin: 34px 0; text-align: center; }
+  .cta-eyebrow { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-size: 16px; margin-bottom: 8px; }
+  .cta-headline { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 26px; margin: 0 0 14px; color: var(--bg); }
+  .cta p { color: rgba(251,251,248,.78); font-size: 15px; margin: 0 auto 24px; max-width: 40ch; }
+  .cta-link { display: inline-block; background: var(--gold); color: var(--ink); padding: 14px 32px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; transition: all .3s ease; }
+  .cta-link:hover { background: var(--bg); transform: translateY(-1px); }
+  .sub-links { text-align: center; margin-top: 10px; }
+  .sub-links a { font-size: 13px; color: var(--ink-muted); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+  .sub-links a:hover { color: var(--ink); border-color: var(--ink); }
+  .restart { margin-top: 30px; text-align: center; }
+  .restart-btn { background: transparent; color: var(--ink-muted); border: 1px solid var(--rule); border-radius: 999px; font-size: 12px; padding: 10px 22px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; cursor: pointer; transition: all .25s ease; }
+  .restart-btn:hover { color: var(--ink); border-color: var(--ink); }
+
+  @media (max-width: 600px) { .wrap { padding: 28px 22px 64px; } .nav { margin-bottom: 36px; } }
+</style>
+<link rel="stylesheet" href="assets/site-system.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span>One Created Life</a>
+    <a href="index.html#work" class="back">Ways to work together →</a>
+  </div>
+
+  <!-- Intro -->
+  <div id="intro" class="screen active">
+    <div class="eyebrow">A free 2-minute check-in</div>
+    <h1>Where are you <em>at?</em></h1>
+    <p class="lede">Not a test, and definitely not an audit. Just a few honest questions to see where you are with being seen, and whether we'd be a good fit to work on it together.</p>
+    <button class="start-btn" onclick="start()">Start the check-in</button>
+    <div class="meta">For anyone with something good to offer who's ready to stop hiding it.</div>
+  </div>
+
+  <!-- Q1 -->
+  <div id="q1" class="screen">
+    <div class="progress"><div class="pstep current"></div><div class="pstep"></div><div class="pstep"></div><div class="pstep"></div></div>
+    <div class="q-num">i.</div>
+    <h2 class="q-text">When it comes to putting yourself out there, where are you right now?</h2>
+    <div class="choices">
+      <button class="choice" onclick="answer(1,'a')">Honestly, I mostly stay hidden.</button>
+      <button class="choice" onclick="answer(1,'b')">I start, I stop, then I start again.</button>
+      <button class="choice" onclick="answer(1,'c')">I show up, but it's not landing the way I'd hoped.</button>
+      <button class="choice" onclick="answer(1,'d')">I'm doing alright, and ready to go bigger.</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div id="q2" class="screen">
+    <div class="progress"><div class="pstep done"></div><div class="pstep current"></div><div class="pstep"></div><div class="pstep"></div></div>
+    <div class="q-num">ii.</div>
+    <h2 class="q-text">What's the honest thing getting in the way?</h2>
+    <div class="choices">
+      <button class="choice" onclick="answer(2,'a')">I'm not even sure what I'm really offering.</button>
+      <button class="choice" onclick="answer(2,'b')">I overthink it and polish everything to death.</button>
+      <button class="choice" onclick="answer(2,'c')">Part of me is scared of being judged.</button>
+      <button class="choice" onclick="answer(2,'d')">I just need a clear plan and some momentum.</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div id="q3" class="screen">
+    <div class="progress"><div class="pstep done"></div><div class="pstep done"></div><div class="pstep current"></div><div class="pstep"></div></div>
+    <div class="q-num">iii.</div>
+    <h2 class="q-text">What would actually make this feel worth it for you?</h2>
+    <div class="choices">
+      <button class="choice" onclick="answer(3,'a')">Finally being clear on my message.</button>
+      <button class="choice" onclick="answer(3,'b')">Showing up consistently without the spiral.</button>
+      <button class="choice" onclick="answer(3,'c')">Feeling confident enough to be fully seen.</button>
+      <button class="choice" onclick="answer(3,'d')">More of the right people finding me.</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div id="q4" class="screen">
+    <div class="progress"><div class="pstep done"></div><div class="pstep done"></div><div class="pstep done"></div><div class="pstep current"></div></div>
+    <div class="q-num">iv.</div>
+    <h2 class="q-text">And how much support feels right, honestly?</h2>
+    <div class="choices">
+      <button class="choice" onclick="answer(4,'a')">Just an honest outside read on where I'm at.</button>
+      <button class="choice" onclick="answer(4,'b')">One focused session to get unstuck.</button>
+      <button class="choice" onclick="answer(4,'c')">Someone in my corner for a little while.</button>
+      <button class="choice" onclick="answer(4,'d')">I'm not sure yet, I'd want to talk first.</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div id="result" class="screen">
+    <div class="progress"><div class="pstep done"></div><div class="pstep done"></div><div class="pstep done"></div><div class="pstep done"></div></div>
+    <div class="r-arch" id="rArch"></div>
+    <h2 class="r-headline" id="rHead"></h2>
+    <div class="r-body" id="rBody"></div>
+    <div class="r-rec">
+      <div class="label">A good next step</div>
+      <div class="body" id="rRec"></div>
+    </div>
+    <div class="cta">
+      <div class="cta-eyebrow">No pressure, just a conversation</div>
+      <div class="cta-headline">Book a free discovery call</div>
+      <p>We'll talk through where you're at and whether we're a fit. Even if the answer is "not yet," you'll leave clearer than you came.</p>
+      <a class="cta-link" href="https://onecreatedlife.notion.site/Work-with-me-36d1419247178053b823d009ded4700a" target="_blank" rel="noopener">Book a call →</a>
+    </div>
+    <div class="sub-links"><a href="index.html#work">Or see all the ways to work together</a></div>
+    <div class="restart"><button class="restart-btn" onclick="restart()">Take it again</button></div>
+  </div>
+
+</div>
+
+<script>
+  const answers = {};
+  const screens = ['intro','q1','q2','q3','q4','result'];
+  function show(id){ screens.forEach(s=>document.getElementById(s).classList.remove('active')); document.getElementById(id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  function start(){ show('q1'); }
+  function answer(q,val){ answers['q'+q]=val; if(q<4){ show('q'+(q+1)); } else { compute(); } }
+  function compute(){
+    const tally={a:0,b:0,c:0,d:0};
+    Object.values(answers).forEach(v=>tally[v]++);
+    // tie-break leans on Q4 (how much support feels right)
+    let top='d', n=-1;
+    ['a','b','c','d'].forEach(k=>{ if(tally[k]>n){ top=k; n=tally[k]; } });
+    if(tally[top] === tally[answers.q4] ) top = answers.q4;
+    const R={
+      a:{ arch:'Where you are', head:'You could use fresh eyes.',
+        body:"<p>You're close enough to your own work that it's genuinely hard to see how it's landing from the outside. That's not a flaw. It's just what happens when you're the one inside it every day.</p><p>A little honest outside perspective tends to unlock more than another month of tweaking on your own. You probably know more than you're giving yourself credit for.</p>",
+        rec:"Start with an honest outside look at your presence, or a free call if you'd rather just talk it through first." },
+      b:{ arch:'Where you are', head:'You’re ready for a spark.',
+        body:"<p>You don't need months of work or a full rebrand. You need one focused session to take all that overthinking and turn it into a clear, doable plan.</p><p><strong>You're more ready than you feel.</strong> The ideas are already in there. They just need shaping and a push out the door.</p>",
+        rec:"A single Spark Session is likely your move, 90 minutes to go from scattered to clear." },
+      c:{ arch:'Where you are', head:'You’re ready for a partner.',
+        body:"<p>You know what you're about. What you're missing isn't clarity, it's steady support, so you can keep showing up without the start-stop spiral.</p><p>This is the season for someone in your corner who knows your goals and keeps you moving, on the practical and the deeper layers both.</p>",
+        rec:"The Visibility Partnership fits where you are, a few months of consistent support and accountability." },
+      d:{ arch:'Where you are', head:'Let’s just talk.',
+        body:"<p>The honest next step for you isn't a package, it's a conversation. You'll know pretty quickly whether this feels right.</p><p>No pitch, no pressure. Just two people figuring out together whether we're a fit, and what would actually help.</p>",
+        rec:"Book a free discovery call. We'll find the honest answer together, even if it's “not right now.”" }
+    };
+    const r=R[top];
+    document.getElementById('rArch').textContent=r.arch;
+    document.getElementById('rHead').textContent=r.head;
+    document.getElementById('rBody').innerHTML=r.body;
+    document.getElementById('rRec').textContent=r.rec;
+    show('result');
+  }
+  function restart(){ Object.keys(answers).forEach(k=>delete answers[k]); show('intro'); }
+</script>
+</body>
+</html>

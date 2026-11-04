@@ -243,7 +243,9 @@
 
   /* ---------- packages ---------- */
   .packages { background: var(--bg-warm); }
-  .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; align-items: stretch; }
+  .pkg-grid { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.32fr); gap: 28px; margin-top: 44px; align-items: stretch; }
+  .pkg-starters { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+  .pkg-group-label { margin: 0 0 2px; padding-left: 4px; color: var(--ink-muted); font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
   .pkg {
     background: var(--bg); border-radius: 22px; border: 1px solid var(--oatmeal);
     padding: 32px 28px; display: flex; flex-direction: column;
@@ -281,6 +283,14 @@
   .pkg-fine { font-size: 13px; color: var(--ink-muted); font-style: normal; font-family:var(--font-body); padding-top: 16px; margin-top: auto; border-top: 1px solid var(--rule); margin-bottom: 22px; line-height: 1.5; }
   .pkg .btn { width: 100%; justify-content: center; }
   .pkg.featured .btn { background: var(--gold); }
+  .pkg-main { align-self: start; padding: 42px 40px 38px; }
+  .pkg-main .pkg-name { max-width: 17ch; font-size: 22px; line-height: 1.25; }
+  .pkg-main .pkg-price { margin: 34px 0 36px; }
+  .pkg-main .pkg-price .pkg-start { margin-bottom: 18px; line-height: 1.5; }
+  .pkg-main .pkg-sub { max-width: 33ch; font-size: 20px; line-height: 1.5; margin: 0 0 28px; }
+  .pkg-main ul { gap: 18px; }
+  .pkg-callout span, .pkg-callout small { display: block; }
+  .pkg-callout small { margin-top: 7px; font-size: 12.5px; line-height: 1.55; color: rgba(251,251,248,.62); text-align: left; }
   .pkg-under { text-align: center; margin-top: 40px; font-family:'Cormorant Garamond',serif; font-style: italic; font-size: 20px; color: var(--ink-soft); }
   .pkg-under a { color: var(--gold-deep); text-decoration: none; border-bottom: 1px solid var(--gold); }
 
@@ -394,6 +404,7 @@
     .hero-art { max-width: 380px; margin: 0 auto; width: 100%; }
     .about-photo { max-width: 252px; margin: 0 auto; }
     .pillars, .steps, .pkg-grid, .proof-grid { grid-template-columns: 1fr; }
+    .pkg-main { order: -1; }
     .pkg.featured { transform: none; }
     .pkg.featured:hover { transform: translateY(-6px); }
     .step:not(:last-child)::after { display: none; }
@@ -404,6 +415,8 @@
     .pad { padding: 64px 0; }
     .hero { padding: 130px 0 80px; }
     .hero h1 { font-size: 34px; line-height: 1.12; }
+    .pkg-main { padding: 38px 28px 32px; }
+    .pkg-main .pkg-price { margin: 30px 0 32px; }
     .nav-links { position: fixed; inset: 0 0 0 auto; width: min(78vw, 320px); background: var(--bg);
       flex-direction: column; align-items: flex-start; justify-content: center; gap: 26px; padding: 40px;
       transform: translateX(100%); transition: transform .4s ease; box-shadow: var(--shadow-lg); }
@@ -513,47 +526,51 @@
     </div>
     <div class="pkg-grid">
 
-      <!-- Audit -->
-      <div class="pkg" data-reveal>
-        <div class="pkg-name">The Honest Look</div>
-        <p class="pkg-price">$197<span> CAD</span></p>
-        <p class="pkg-sub">A warm, specific outside read on how your brand is landing online.</p>
-        <ul>
-          <li>Personalized video review (10–15 min)</li>
-          <li>Feedback on messaging, visuals &amp; consistency</li>
-          <li>3–5 personal recommendations</li>
-        </ul>
-        <p class="pkg-fine">Save $50 off a Spark Session if you book within two weeks.</p>
-        <a href="#book" class="btn btn-ghost">Get the Honest Look</a>
+      <div class="pkg-starters" data-reveal>
+        <p class="pkg-group-label">Starter packages</p>
+
+        <!-- Audit -->
+        <div class="pkg">
+          <div class="pkg-name">The Honest Look</div>
+          <p class="pkg-price">$197<span> CAD</span></p>
+          <p class="pkg-sub">A warm, specific outside read on how your brand is landing online.</p>
+          <ul>
+            <li>Personalized video review (10–15 min)</li>
+            <li>Feedback on messaging, visuals &amp; consistency</li>
+            <li>3–5 personal recommendations</li>
+          </ul>
+          <p class="pkg-fine">Save $50 off a Spark Session if you book within two weeks.</p>
+          <a href="#book" class="btn btn-ghost">Get the Honest Look</a>
+        </div>
+
+        <!-- Spark -->
+        <div class="pkg">
+          <div class="pkg-name">Spark Session</div>
+          <p class="pkg-price">$597<span> CAD</span></p>
+          <p class="pkg-sub">90 focused minutes to turn scattered ideas into a clear message and plan.</p>
+          <ul>
+            <li>Clear messaging and positioning</li>
+            <li>Direction for your content and presence</li>
+            <li>A practical visibility plan</li>
+          </ul>
+          <p class="pkg-fine">Best place to start if you're capable of more and ready to turn ideas into action.</p>
+          <a href="#book" class="btn btn-ghost">Book a Spark Session</a>
+        </div>
       </div>
 
-      <!-- Spark — featured -->
-      <div class="pkg featured" data-reveal data-d="1">
-        <span class="badge">Most popular</span>
-        <div class="pkg-name">Spark Session</div>
-        <p class="pkg-price">$597<span> CAD</span></p>
-        <p class="pkg-sub">90 focused minutes to turn scattered ideas into a clear message and plan.</p>
-        <ul>
-          <li>Clear messaging and positioning</li>
-          <li>Direction for your content and presence</li>
-          <li>A practical visibility plan</li>
-        </ul>
-        <p class="pkg-fine">Best place to start if you're capable of more and ready to turn ideas into action.</p>
-        <a href="#book" class="btn">Book a Spark Session</a>
-      </div>
-
-      <!-- Partnership -->
-      <div class="pkg" data-reveal data-d="2">
-        <div class="pkg-name">Creative Direction &amp; Strategic Brand Partnership</div>
+      <!-- Partnership — primary offer -->
+      <div class="pkg featured pkg-main" data-reveal data-d="1">
+        <span class="badge">Recommended</span>
+        <div class="pkg-name">Strategic Brand Partnership</div>
         <p class="pkg-price"><span class="pkg-start">Starting at</span>$2,500<span> CAD /mo</span></p>
-        <p class="pkg-sub">Three months of strategy, creative direction, and accountability.</p>
+        <p class="pkg-sub">Brand strategy, creative direction, accountability... all in your corner.</p>
         <ul>
-          <li>Two working calls each month</li>
+          <li class="pkg-callout"><span>Two working calls each month to help</span><small>work through where you get stuck and brainstorm new ideas together.</small></li>
           <li>Async content and messaging feedback</li>
-          <li>Voice, confidence, and accountability support</li>
+          <li>Voice, consistency and visibility support</li>
         </ul>
-        <p class="pkg-fine">Starting at $2,500 CAD per month. Three-month commitment. By application.</p>
-        <a href="#book" class="btn btn-ghost">Apply to work together</a>
+        <p class="pkg-fine">Minimum 2-month commitment. By application.</p>
+        <a href="#book" class="btn">Apply to work together</a>
       </div>
 
     </div>

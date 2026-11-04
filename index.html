@@ -244,8 +244,6 @@
   /* ---------- packages ---------- */
   .packages { background: var(--bg-warm); }
   .pkg-grid { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.32fr); gap: 28px; margin-top: 44px; align-items: stretch; }
-  .pkg-starters { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-  .pkg-group-label { margin: 0 0 2px; padding-left: 4px; color: var(--ink-muted); font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
   .pkg {
     background: var(--bg); border-radius: 22px; border: 1px solid var(--oatmeal);
     padding: 32px 28px; display: flex; flex-direction: column;
@@ -522,40 +520,22 @@
     <div class="section-head center" data-reveal>
       <p class="eyebrow">Work with me</p>
       <h2>Choose the support you need</h2>
-      <p class="lede" style="margin:0 auto;">Start with an honest outside perspective, a focused working session, or ongoing strategic support. You don't need to have everything figured out before you begin.</p>
+      <p class="lede" style="margin:0 auto;">Choose a focused working session or ongoing strategic support. You don't need to have everything figured out before you begin.</p>
     </div>
     <div class="pkg-grid">
 
-      <div class="pkg-starters" data-reveal>
-        <p class="pkg-group-label">Starter packages</p>
-
-        <!-- Audit -->
-        <div class="pkg">
-          <div class="pkg-name">The Honest Look</div>
-          <p class="pkg-price">$197<span> CAD</span></p>
-          <p class="pkg-sub">A warm, specific outside read on how your brand is landing online.</p>
-          <ul>
-            <li>Personalized video review (10–15 min)</li>
-            <li>Feedback on messaging, visuals &amp; consistency</li>
-            <li>3–5 personal recommendations</li>
-          </ul>
-          <p class="pkg-fine">Save $50 off a Spark Session if you book within two weeks.</p>
-          <a href="#book" class="btn btn-ghost">Get the Honest Look</a>
-        </div>
-
-        <!-- Spark -->
-        <div class="pkg">
-          <div class="pkg-name">Spark Session</div>
-          <p class="pkg-price">$597<span> CAD</span></p>
-          <p class="pkg-sub">90 focused minutes to turn scattered ideas into a clear message and plan.</p>
-          <ul>
-            <li>Clear messaging and positioning</li>
-            <li>Direction for your content and presence</li>
-            <li>A practical visibility plan</li>
-          </ul>
-          <p class="pkg-fine">Best place to start if you're capable of more and ready to turn ideas into action.</p>
-          <a href="#book" class="btn btn-ghost">Book a Spark Session</a>
-        </div>
+      <!-- Spark — focused starting point -->
+      <div class="pkg" data-reveal>
+        <div class="pkg-name">Spark Session</div>
+        <p class="pkg-price">$597<span> CAD</span></p>
+        <p class="pkg-sub">90 focused minutes to turn scattered ideas into a clear message and plan.</p>
+        <ul>
+          <li>Clear messaging and positioning</li>
+          <li>Direction for your content and presence</li>
+          <li>A practical visibility plan</li>
+        </ul>
+        <p class="pkg-fine">Best place to start if you're capable of more and ready to turn ideas into action.</p>
+        <a href="#book" class="btn btn-ghost">Book a Spark Session</a>
       </div>
 
       <!-- Partnership — primary offer -->

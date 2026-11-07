@@ -35,6 +35,9 @@ header.nav.scrolled{background:rgba(251,251,248,.82);backdrop-filter:blur(14px) 
 .cs-gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-auto-flow:dense;margin-top:40px}
 .cs-fig{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);background:var(--oatmeal-soft);margin:0;aspect-ratio:1/1}
 .cs-fig img,.cs-fig video{width:100%;height:100%;object-fit:cover;display:block}
+.cs-fig.labeled{aspect-ratio:auto;overflow:visible;box-shadow:none;background:transparent;display:flex;flex-direction:column;gap:10px}
+.cs-fig.labeled figcaption{order:-1;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);padding-left:2px}
+.cs-fig.labeled img{aspect-ratio:1/1;border-radius:14px;box-shadow:var(--shadow-sm)}
 .cs-fig.wide{grid-column:1 / -1;aspect-ratio:auto;background:var(--bg)}
 .cs-fig.wide img{height:auto;object-fit:contain}
 .cs-next{display:flex;justify-content:space-between;gap:16px;margin:64px 0 0;padding-top:28px;border-top:1px solid var(--rule)}
@@ -72,10 +75,10 @@ footer .tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1
 
 <div class="cs-story reveal"><p>Pere Events is an event planning and coordination studio known for curating beautiful milestone experiences.</p><p>We partnered across several phases of their brand evolution, refining the logo as the business grew and extending the work into platform-ready content to help them show up with more clarity and consistency.</p></div>
 <div class="cs-gallery">
-<figure class="cs-fig reveal"><img src="../assets/work/pere-events/01.png" alt="Pere Events — 1" loading="lazy"></figure>
-<figure class="cs-fig reveal"><img src="../assets/work/pere-events/02-repaired.jpg" alt="Pere Events — 2" loading="lazy"></figure>
-<figure class="cs-fig reveal"><img src="../assets/work/pere-events/03-repaired.jpg" alt="Pere Events — 3" loading="lazy"></figure>
-<figure class="cs-fig reveal"><img src="../assets/work/pere-events/04-repaired.jpg?v=20261107" alt="Pere Events pear logo development sketches" loading="lazy"></figure>
+<figure class="cs-fig reveal labeled"><figcaption>Wordmark</figcaption><img src="../assets/work/pere-events/01.png" alt="Pere Events wordmark" loading="lazy"></figure>
+<figure class="cs-fig reveal labeled"><figcaption>Letterpress Business Cards</figcaption><img src="../assets/work/pere-events/02-repaired.jpg" alt="Pere Events letterpress business cards" loading="lazy"></figure>
+<figure class="cs-fig reveal labeled"><figcaption>Brand Shoot</figcaption><img src="../assets/work/pere-events/03-repaired.jpg" alt="Pere Events brand shoot" loading="lazy"></figure>
+<figure class="cs-fig reveal labeled"><figcaption>Hand Sketches</figcaption><img src="../assets/work/pere-events/04-repaired.jpg?v=20261107" alt="Pere Events pear logo development sketches" loading="lazy"></figure>
 </div>
 <div class="cs-next">
 <a href="cdm.html">← Cuatro Direcciones Medicina</a>
